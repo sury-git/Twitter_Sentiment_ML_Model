@@ -28,7 +28,17 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
 
-
+       # name: Set up QEMU
+        # uses: docker/setup-qemu-action@v3
+    -
+      name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v3
+    -
+        name: Build and push
+        uses: docker/build-push-action@v6
+        with:
+          push: true
+          tags: user/app:latest
     # Build the Docker image
     - name: Build Docker image
       run: docker build -t ${{ secrets.DOCKER_USERNAME }}/twitter-app:latest .

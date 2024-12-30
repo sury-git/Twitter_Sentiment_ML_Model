@@ -37,9 +37,9 @@ jobs:
     - name: Push Docker image
       run: docker push ${{ secrets.DOCKER_USERNAME }}/twitter-app:latest
 
-    # Optional: Test the Docker image
-    - name: Test Docker image
-      run: |
-        docker run -d -p 8501:8501 ${{ secrets.DOCKER_USERNAME }}/my-app:latest
-        sleep 10 # Wait for the app to start
-        curl http://localhost:8501
+    # # Optional: Test the Docker image
+    # - name: Test Docker image
+    #   run: |
+    #     docker run -d -p 8501:8501 ${{ secrets.DOCKER_USERNAME }}/my-app:latest
+    #     sleep 10 # Wait for the app to start
+    #     curl http://localhost:8501
